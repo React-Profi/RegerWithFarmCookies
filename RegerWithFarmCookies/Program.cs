@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Global.ZennoExtensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ using ZennoLab.Emulation;
 using ZennoLab.InterfacesLibrary.ProjectModel;
 using ZennoLab.InterfacesLibrary.ProjectModel.Enums;
 
-namespace RegerWithFarmCookies
+namespace RegerWithCookies
 {
     /// <summary>
     /// Класс для запуска выполнения скрипта
@@ -27,9 +28,14 @@ namespace RegerWithFarmCookies
         /// <returns>Код выполнения скрипта</returns>		
         public int Execute(Instance instance, IZennoPosterProjectModel project)
         {
-            int executionResult = 0;
 
-            return executionResult;
+            var feedCookies = new CookieManager.CookieManager(instance, project);
+
+            feedCookies.ProcessCookieData();
+
+            return 0;
         }
+
+
     }
 }
